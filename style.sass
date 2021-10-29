@@ -1,0 +1,803 @@
+$colorBG: linear-gradient(135deg,#e9e9e9,#e2dacf,#f5f5f5,#e2dacf)   
+$colorMenu: linear-gradient(225deg,#fff,#e2dacf 75%,#f1f1f1)  
+
+$colorBtn: #ed7d60
+$colorFont: #313464
+$colorGrey: #515151
+@mixin size($w,$h:$w)
+    width: $w
+    height: $h
+@import url('https://fonts.googleapis.com/css2?family=Kosugi+Maru&family=Noto+Sans+TC:wght@100;300;400;500;900&family=RocknRoll+One&display=swap')
+
+    
+body
+    margin: 0
+*
+    box-sizing: border-box
+    padding: 0
+    margin: 0
+    font-family: 'Noto Sans TC', sans-serif
+html
+    scroll-behavior: smooth
+body
+    background: $colorBG
+ul
+    list-style: none
+a
+    text-decoration: none
+    color: currentcolor
+img
+    max-width: 100%
+button,input
+    border: none
+    outline: none
+
+
+.container
+    max-width: 968px
+
+.grid
+    display: grid
+
+.header
+    width: 100%
+    background: $colorBG
+    position: fixed
+    top: 0
+    left: 0
+    z-index: 10
+    padding: .5rem .2rem
+
+.nav
+    display: flex
+    justify-content: space-between
+    align-items: center
+
+    .nav_logo
+        display: flex
+        align-items: center
+        column-gap: .5rem
+        font-family: 'RocknRoll One'
+        img
+            width: 1.8rem
+
+.nav_link,.nav_logo,.nav_toggle,.nav_close
+    color: #000
+
+.nav_toggle
+    font-size: 1.25rem
+    cursor: pointer
+
+@media screen and ( max-width: 767px )
+    
+    .nav_menu
+        position: fixed
+        width: 100%
+        background: $colorMenu
+        top: -120%
+        left: 0
+        padding: 3.5rem
+        transition:  .4s
+        z-index: 15
+        border-radius: 0 0 1.5rem 1.5rem
+.nav_img
+    width: 130px    
+    position: absolute
+    top: -3rem
+    left: 0
+    transform: rotate(190deg)
+.nav_close
+    font-size: 1.8rem
+    position: absolute
+    top: .5rem
+    right: .7rem
+    cursor: pointer
+
+.nav_list
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+
+    li
+        margin: .8rem 0
+.show
+    top: 0
+
+.home__content
+    row-gap: 1rem
+    padding: 3.5rem .9rem 0 .9rem
+
+.home__group
+    display: grid
+    position: relative
+    padding-top: 3rem
+
+.home__img
+    height: 250px
+    justify-self: center
+
+.home__indicator
+    width: 8px
+    height: 8px
+    position: absolute
+    background-color: $colorBtn
+    border-radius: 50%
+    top: 7rem
+    right: 2rem
+
+.home__indicator
+    &::after
+        content: ''
+        position: absolute
+        width: 1px
+        height: 48px
+        background-color: $colorBtn
+        top: -3rem
+        right: 45%
+
+.home__details-img
+    position: absolute
+    right: .5rem
+
+.home__details-title,.home__details-subtitle
+    display: block
+    font-size: 0.9rem
+    text-align: right
+    font-family: 'Kosugi Maru', sans-serif
+
+.home__sub
+    font-size: 1.1rem
+    margin: 1rem 0 .5rem .3rem
+    font-weight: 600
+    letter-spacing: 1px
+
+.home__title
+    font-size: 1.9rem
+    font-weight: bold
+    line-height: 120%
+    margin-bottom: 20px
+    padding-left: 10px
+    font-family: 'RocknRoll One','Kosugi Maru'
+
+.home__desc
+    color:$colorGrey
+    letter-spacing: 1.5px
+    line-height: 1.5rem
+    padding: 0 .5rem
+    font-family: 'Kosugi Maru', 'Noto Sans TC',sans-serif
+
+.home__buttons
+    display: flex
+    margin-top: 1rem
+    align-items: center
+    justify-content: space-between
+
+.button
+    display: inline-block
+    cursor: pointer
+    background-color: $colorBtn
+    color:#fff
+    letter-spacing: 2px
+    padding: 1rem 3rem
+    border-radius: .5rem
+    transition: .3s
+    font-family: 'Kosugi Maru', sans-serif
+    &:hover
+        background-color: darken($colorBtn,4)
+
+.button-ghost
+    border: 2px solid $colorFont
+    color: $colorFont
+    background-color: transparent
+    border-radius: 3rem
+    padding: .75rem 1.5rem
+    font-weight: 600
+    &:hover
+        background-color: $colorFont
+        color: #fff
+        transition: .3s
+
+.button--link
+    color: #665d5d
+
+.button--flex
+    display: inline-block
+    align-items: center
+    column-gap: .5rem
+
+/*SWIPER CLASS*/
+
+.swiper-pagination
+    position: initial !important
+    margin-top: 2rem
+    .swiper-pagination-bullet
+        +size(5px)
+        background-color: $colorFont
+        margin: 0 var(--swiper-pagination-bullet-horizontal-gap,8px) !important
+        
+    .swiper-pagination-bullet-active
+        +size(1.5rem,.5rem)
+        border-radius: .5rem
+
+/*SECTION*/
+.section
+    padding: 4.3rem .8rem
+
+.section__title
+    font-size: 1.5rem
+    margin-bottom: 3rem
+    text-align: center
+    letter-spacing: 1px
+    font-family: 'RocknRoll One','Kosugi Maru'
+
+/*其他腳色*/
+.category__container
+    grid-template-columns: repeat(2,1fr)
+    gap:  2.5rem 2rem
+    letter-spacing: 1px
+
+.category__data
+    text-align: center
+    cursor: pointer
+    &:hover
+        .category__img
+            transform: translateY(10px)
+            filter: brightness(110%)
+
+.category__img
+    width: 150px
+    margin-bottom: 1rem
+    transition: .3s
+
+.category__title
+    margin-bottom: 1.5rem
+    font-weight: 600
+.category__desc
+    font-size: 0.8rem
+    color: $colorGrey
+
+/*SCROLL HEADER*/
+.scroll-header
+    background: rgba(#fff,0.5)
+
+/*About*/
+
+.about__container
+    row-gap: 1rem
+.about__data
+    text-align: center
+.about__desc
+    margin-bottom: 3rem
+    justify-self: center
+    line-height: 1.5rem
+    letter-spacing: 1px
+    color: $colorGrey
+    
+/*CANDY*/
+.trick__container
+    grid-template-columns: repeat(2,1fr)
+    gap: 1.5rem
+    padding-top: 1rem
+.trick__content
+    position: relative
+    background: $colorMenu
+    border-radius: 1rem
+    padding: 1.5rem 0 1rem 0
+    text-align: center
+    overflow: hidden
+    transition: .3s
+    cursor: pointer
+    &:hover
+        .trick__img
+            transform: translateY(-.5rem)
+        .trick__button
+            right: 0
+
+.trick__img
+    width: 90px
+    transition: .3s
+
+.trick__sub,.trick__price
+    display: block
+
+.trick__sub
+    font-size: .6rem
+.trick__title,.trick__price
+    font-size: 1.2rem
+    font-weight: 500
+.trick__button
+    display: inline-block
+    padding: .5rem
+    border-radius: .25rem .25rem .75rem .25rem
+    position: absolute
+    right: -3rem
+    bottom: 0
+
+
+.trick__container
+    .trick__content
+        &:nth-child(2)
+            .trick__img
+                padding: 3rem 0
+
+.trick__icon
+    font-size: 1.25rem
+/*DISCOUNT*/
+
+.discount__container
+    background: $colorMenu
+    border-radius: 1rem
+    padding: 2.5rem 0 1.5rem
+    row-gap: .75rem
+    transition: .3s
+    &:hover
+        .discount__img
+            transition: .3s
+            transform: translateY(.5rem)
+
+.discount__data
+    text-align: center
+
+.discount__title
+    font-size: 1.45rem
+    margin-bottom: 1.25rem
+    color:$colorGrey
+    span
+        font-size: 2rem
+        color: $colorBtn
+
+.discount__img
+    width: 200px
+    justify-self: center
+    transition: .3s
+
+/*PACK*/
+
+.new__img
+    width: 135px
+    margin-bottom: .5rem
+    transition: .3s
+
+.new__content
+    position: relative
+    background: $colorBG
+    width: 80% !important 
+    padding: 2rem 0 1.5rem 0
+    border-radius: .75rem
+    text-align: center
+    overflow: hidden
+
+.new__tag
+    position: absolute
+    top: 6%
+    left: 8%
+    background-color: $colorFont
+    color: $colorBtn
+    font-size: .9rem
+    padding: .25rem .3rem
+    border-radius: .25rem
+    font-weight: 600
+
+.new__title
+    font-size: 1rem
+.new__sub
+    display: block
+    font-size: .8rem
+    margin-bottom: .25rem
+
+.new__prices
+    display: inline-block
+    align-items: center
+    column-gap: .5rem
+.new__price
+    font-weight: 600
+.new__discount
+    color: $colorBtn
+    font-weight: 600
+    text-decoration: line-through
+    font-size: .9rem
+.new__button
+    display: inline-block
+    padding: .5rem
+    border-radius: .25rem .25rem .75rem .25rem
+    position: absolute
+    bottom: 0
+    right: -3rem
+.new__icon
+    font-size: 1.2rem
+
+.new__content
+    cursor: pointer
+    &:hover
+        .new__img
+            transform: translateY(.5rem)
+        .new__button
+            right: 0
+
+/*SUSCRIBE*/
+.newsletter__desc
+    text-align: center
+    margin-bottom: 1.5rem
+
+.newsletter__form
+    background: $colorMenu
+    padding: 1rem
+    display: flex
+    justify-content: space-between
+    border-radius: .75rem
+
+    input
+        width: 70%
+        padding: 0 .5rem 
+        background: none
+    
+/*footer*/
+
+.footer
+    position: relative
+    overflow: hidden
+
+    [class^='illust']
+        position: absolute
+        transition: .5s
+        &:hover
+            transform: translateY(-1rem)
+            transition: .5s
+
+    .illust1
+        width: 150px
+        top: 6rem
+        right: -2rem
+        animation: float 1s infinite alternate
+        opacity: 0.8
+    .illust2
+        width: 200px
+        bottom: 6rem
+        right: 4rem
+        animation: float 1s infinite alternate
+        animation-delay: -1s
+        
+
+    @keyframes float
+        0%
+            transform: translateY(-.8rem)
+        100%
+            transform: translateY(.1rem)
+
+.footer__container
+    row-gap: 2rem
+
+.footer__logo
+    display: flex
+    align-items: center
+    column-gap: .5rem
+    margin-bottom: 1rem
+    font-weight: 600
+
+    img
+        width: 35px
+
+.footer__desc
+    margin-bottom: 2.5rem
+
+.footer__social
+    display: flex
+    column-gap: .75rem
+
+    a
+        display: inline-flex
+        background: $colorMenu
+        padding: .25rem
+        border-radius: .25rem
+        color: $colorGrey
+        font-size: 1rem
+        &:hover
+            color: lighten($colorGrey,5)
+        
+
+.footer__title
+    margin-bottom: 1rem
+
+.footer__links
+    display: grid
+    row-gap: .35rem
+
+    .footer__link
+        font-size: .9rem
+        color: $colorGrey
+
+.footer__copy
+    display: block
+    text-align: center
+    font-size: .8rem
+    margin-top: 4.5rem
+
+/*active-link*/
+
+.active-link
+    position: relative
+
+    &::before
+        content:''
+        position: absolute
+        top: -.75rem
+        left: 45%
+        +size(5px)
+        background-color: $colorFont
+        border-radius: 50%
+
+/*SCROLL-UP*/
+
+.uptoTop
+    position: fixed
+    right: .5rem
+    bottom: -20%
+    background: $colorBG
+    display: inline-flex
+    padding: .5rem
+    border-radius: .25rem
+    z-index: 10
+    opacity: .8
+    transition: .5s
+    &:hover
+        opacity: 1
+
+    i
+        font-size: 1.25rem
+        color: $colorGrey
+
+.show-scroll
+    bottom: 3rem
+
+/*SCROLL BAR*/
+
+::-webkit-scrollbar
+    width: 0.6rem
+    background: $colorMenu
+::-webkit-scrollbar-thumb
+    background: $colorGrey
+    border-radius: 10px
+
+/*For small Size devices*/
+
+@media screen and ( max-width: 330px )
+
+.container
+    margin: 0 .25rem
+
+.home__img
+    height: 200px
+
+.home__buttons
+    flex-direction:  column
+    width: max-content
+    row-gap: 1rem
+
+.category__container,.trick__container
+    grid-template-columns: .8fr
+    justify-content: center
+
+.footer
+    .illust2
+        width: 120px
+
+
+    /*For medium Size devices*/
+
+@media screen and ( min-width: 576px )
+    .about__container
+        grid-template-columns: .8fr
+        justify-content: center
+
+    .newsletter__container
+        display: grid
+        grid-template-columns: .8fr
+        justify-content: center
+
+    
+@media screen and ( min-width: 767px )
+
+    body
+        margin: 0
+
+    section
+        padding: 5rem  2rem
+
+    .nav
+        height: 4rem
+
+    .nav_img,.nav_close,.nav_toggle
+        display: none
+
+    .nav_list
+        flex-direction: row
+        column-gap:  3rem
+
+    .nav_link
+        text-transform: initial
+        font-weight: initial
+
+    .home__content
+        padding: 0rem 2rem
+        grid-template-columns: repeat(2,1fr)
+        gap: 4rem
+        display: grid
+
+    .home__img
+        height: 300px
+
+    .swiper-pagination  
+        margin-top: 1.2rem
+
+    .category__container
+        grid-template-columns: repeat(3,200px)
+        justify-content: center
+        margin-top: 2rem
+    
+    .about__container
+        grid-template-columns: repeat(2,1fr)
+        align-items: center
+        gap: 0 1.75rem
+
+        img
+            width: 350px
+    
+    .about__title,.about__data
+        text-align: initial
+    .about__desc
+        line-height: 30px
+        margin-bottom: 1.25rem
+    .trick__container
+        grid-template-columns: repeat(2,0.45fr)
+        justify-content: center
+        gap: 2rem
+
+    .discount__container
+        grid-template-columns: repeat(2,max-content)
+        justify-content: center
+        align-items: center
+        column-gap: 3rem
+        padding: 3rem 0
+        border-radius: 3rem
+
+    .discount__img
+        width: 280px
+        order: -1 
+        animation: float 0.8s infinite alternate
+    /*order: -1 左右順序改變*/
+
+    .new__content
+        position: relative
+        background: $colorBG
+        width: 30% !important 
+        padding: 2rem 0 1.5rem 0
+        border-radius: .75rem
+        text-align: center
+        overflow: hidden
+
+    .newsletter__container
+        grid-template-columns: .6fr
+        justify-content: center
+
+    .footer__container
+        grid-template-columns: repeat(4,1fr)
+        justify-content: center
+        column-gap: 1rem 
+        /*column-gap項目之間的間隔*/
+
+    .footer
+        .illust2
+             right: initial
+             bottom: .2rem
+
+    /*Large Size*/
+
+@media screen and ( min-width: 992px )
+    .container
+        margin:
+            left: auto
+            right: auto
+        
+    .section__title
+        font-size: 2rem
+        margin-bottom: 3.5rem
+
+    .home__content
+        padding-top: 3rem
+        gap: 3rem
+
+    .home__group
+        padding-top: 0
+
+    .home__img
+        height: 400px
+        transform: translateY(-3rem)
+
+    .home__indicator
+        top: initial
+        right: initial
+        bottom: 15%
+        left: 45%
+        &::after
+            top: 0
+            height: 75px
+    .home__details-img
+        bottom: 0
+        right: 58%
+    .home__title
+        margin-bottom: 1.5rem
+        font-size: 2.5rem
+
+    .home__desc
+        margin-bottom: 2.5rem
+        line-height: 160%
+        letter-spacing: 2px
+    .home__buttons
+        flex-direction: row
+        justify-content: space-between
+        width: 100%
+
+    .category__container
+        column-gap: 8rem
+    .category__img
+        width: 200px
+
+    .about__container
+        img
+            width: 450px
+            padding-left: 3rem
+
+    .trick__price
+        padding-top: .5rem
+
+    .discount__container
+        column-gap: 5rem
+
+    .discount__title
+        font-size: 1.8rem
+        margin-bottom: 2rem
+        span
+            font-size: 2.5rem
+
+
+    .new__title
+        padding-top: .55rem
+    .new__prices
+        padding-top: .35rem
+       
+    .footer__copy
+        margin-top: 6rem
+
+    .footer__content
+        text-align: center
+            
+    .footer__content
+        &:nth-child(1)
+            text-align: left
+
+@media screen and ( min-width: 1200px )
+    .home__img
+        height: 420px
+    
+            
+    
+
+        
+
+        
+    
+
+
+
+
+
+    
+    
+
+        
+    
+        
+
+        
+
